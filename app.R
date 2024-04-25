@@ -3,6 +3,7 @@ library(shinydashboard)
 library(ggplot2)
 library(dplyr)
 library(hrbrthemes)
+library(datasets)
 library(wordcloud)
 library(babynames)
 library(ISLR)
@@ -118,18 +119,20 @@ ui <- dashboardPage(skin = 'green',
                                  fluidRow(tags$div(class = "custom-box",
                                           box( width = 8, solidHeader = TRUE,tags$div(class = "title-home", "App DataViz"), 
                                           br(), 
-                                          tags$div(class = "text-home", 
+                                          tags$div(class = "text-home", style="text-align: justify",
                                           tags$p("O aplicativo DataViz simplifica a visualização de dados de acordo com a 
                                                                              escolha de tipo de variável: Numérico, Categórico ou Numérico-Categórico."), 
                                           tags$p("Utilizar o app é muito simples: Basta selecionar ao lado o tipo de dado que 
-                                                      você esteja analisando e após clicar no botão gráfico para ser 
+                                                      você esteja analisando, a quantidade e clicar no botão 'Gráfico!' para ser 
                                                       direcionado para a aba com as informações sobre a melhor visualização gráfica.")),
                                          tags$div(class = "title-home", "Exemplos de tipos de dados"), 
                                               br(), 
-                                              tags$div(class = "text-home", tags$p("Dados numéricos são valores que representam quantidades ou medidas. É possível fazer operações matemáticas com eles (somar, subtrair, etc.)."), 
+                                              tags$div(class = "text-home", style="text-align: justify",
+                                                                            tags$p(tags$b("Dados numéricos"), "são valores que representam quantidades ou medidas. É possível fazer operações matemáticas com eles (somar, subtrair, etc.)."), 
                                                                             tags$p("- Idade, altura, renda mensal, temperatura, preço de produto."), 
-                                                                            tags$p("Dados categóricos representam categorias ou grupos. Podem ser palavras ou números, mas não se pode fazer operações matemáticas com eles."),
-                                                                            tags$p("- Gênero, cor dos olhos, nível de escolaridade, categorias de produtos."))),
+                                                                            tags$p(tags$b("Dados categóricos"), "representam categorias ou grupos. Podem ser palavras ou números, mas não se pode fazer operações matemáticas com eles."),
+                                                                            tags$p("- Gênero, cor dos olhos, nível de escolaridade, categorias de produtos."),
+                                                                            tags$p(tags$b("Se estiver analisando apenas duas variáveis númericas fique atento a variável do eixo x, pois existem gráficos para dados não ordenados e ordenados.")))),
                                          box(width = 4, solidHeader = TRUE, tags$div(class = "title-home", 
                                                                                      tags$span("Tipos de dados", style = "font-size: 20px;"),
                                                                                      selectInput("dashboard_variavel1", 
@@ -163,7 +166,7 @@ ui <- dashboardPage(skin = 'green',
                                 ),
                                 tabBox(
                                   id = "tabset1", width = "550px", 
-                                  tabPanel("Densidade", 
+                                  tabPanel("Densidade", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("densityPlot")),
                                              column(width = 6,
@@ -186,7 +189,7 @@ ui <- dashboardPage(skin = 'green',
                                              )
                                            )
                                   ), 
-                                  tabPanel("Histograma",
+                                  tabPanel("Histograma", style="text-align: justify",
                                               fluidRow(
                                                 column(width = 6,  plotOutput("histogramPlot")),
                                                 column(width = 6,
@@ -206,7 +209,9 @@ ui <- dashboardPage(skin = 'green',
                                                        tags$div(class = "text-home", 
                                                                 tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/histograma.R", target="_blank", "R"),
                                                                 br(),
-                                                                tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma.py", target="_blank", "Python"))
+                                                                tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma.py", target="_blank", "Python"),
+                                                                br(),
+                                                                tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                                 )
                                               )))
                           
@@ -227,7 +232,7 @@ ui <- dashboardPage(skin = 'green',
                                 ),
                                 tabBox(title= "Dados não ordenados",
                                   id = "tabset1", width = "550px", 
-                                  tabPanel("Densidade", 
+                                  tabPanel("Densidade", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("densityPlot2")),
                                              column(width = 6,
@@ -250,7 +255,7 @@ ui <- dashboardPage(skin = 'green',
                                              )
                                            )
                                   ), 
-                                  tabPanel("Dispersão",
+                                  tabPanel("Dispersão", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("scatterPlot")),
                                              column(width = 6,
@@ -269,10 +274,12 @@ ui <- dashboardPage(skin = 'green',
                                                     tags$div(class = "text-home", 
                                                              tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/dispersao.R", target="_blank", "R"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/dispersao.py", target="_blank", "Python"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/dispersao.py", target="_blank", "Python"),
+                                                             br(),
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                              )
                                            )),
-                                  tabPanel("Histograma",
+                                  tabPanel("Histograma", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("histogramPlot2")),
                                              column(width = 6,
@@ -292,14 +299,16 @@ ui <- dashboardPage(skin = 'green',
                                                     tags$div(class = "text-home", 
                                                              tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/histograma2.R", target="_blank", "R"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma2.py", target="_blank", "Python"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma2.py", target="_blank", "Python"),
+                                                             br(),
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                              )
                                            ))
                                   
                                   ),
                                 tabBox(title= "Dados ordenados",
                                        id = "tabset1", width = "550px", 
-                                       tabPanel("Área", 
+                                       tabPanel("Área", style="text-align: justify",
                                                 fluidRow(
                                                   column(width = 6,  plotOutput("areaPlot")),
                                                   column(width = 6,
@@ -317,11 +326,13 @@ ui <- dashboardPage(skin = 'green',
                                                          tags$div(class = "text-home", 
                                                                   tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/area.R", target="_blank", "R"),
                                                                   br(),
-                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/area.py", target="_blank", "Python"))
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/area.py", target="_blank", "Python"),
+                                                                  br(),
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                                   )
                                                 )
                                        ), 
-                                       tabPanel("Dispersão conectado", 
+                                       tabPanel("Dispersão conectado", style="text-align: justify",
                                                 fluidRow(
                                                   column(width = 6,  plotOutput("scattercPlot")),
                                                   column(width = 6,
@@ -344,7 +355,7 @@ ui <- dashboardPage(skin = 'green',
                                                   )
                                                 )
                                        ), 
-                                       tabPanel("Linha",
+                                       tabPanel("Linha", style="text-align: justify",
                                                 fluidRow(
                                                   column(width = 6,  plotOutput("linePlot")),
                                                   column(width = 6,
@@ -362,7 +373,9 @@ ui <- dashboardPage(skin = 'green',
                                                          tags$div(class = "text-home", 
                                                                   tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/linha.R", target="_blank", "R"),
                                                                   br(),
-                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/linha.py", target="_blank", "Python"))
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/linha.py", target="_blank", "Python"),
+                                                                  br(),
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                                   )
                                                 ))
                                        
@@ -385,7 +398,7 @@ ui <- dashboardPage(skin = 'green',
                                 ),
                                 tabBox(
                                   id = "tabset1", width = "550px", 
-                                  tabPanel("Barras", 
+                                  tabPanel("Barras", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("barPlot")),
                                              column(width = 6,
@@ -404,11 +417,13 @@ ui <- dashboardPage(skin = 'green',
                                                     tags$div(class = "text-home", 
                                                              tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/barras.R", target="_blank", "R"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras.py", target="_blank", "Python"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras.py", target="_blank", "Python"),
+                                                             br(),
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                              )
                                            )
                                   ), 
-                                  tabPanel("Nuvem de palavras",
+                                  tabPanel("Nuvem de palavras", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("cloudPlot")),
                                              column(width = 6,
@@ -429,7 +444,7 @@ ui <- dashboardPage(skin = 'green',
                                                              tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/nuvem.py", target="_blank", "Python"))
                                              )
                                            )),
-                                  tabPanel("Pirulito",
+                                  tabPanel("Pirulito", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("loliPlot")),
                                              column(width = 6,
@@ -466,7 +481,7 @@ ui <- dashboardPage(skin = 'green',
                                 ),
                                 tabBox(
                                   id = "tabset1", width = "550px", 
-                                  tabPanel("Barras agrupadas", 
+                                  tabPanel("Barras agrupadas", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("groupPlot")),
                                              column(width = 6,
@@ -485,11 +500,13 @@ ui <- dashboardPage(skin = 'green',
                                                     tags$div(class = "text-home", 
                                                              tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/barras_agrupadas.R", target="_blank", "R"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras_agrupadas.py", target="_blank", "Python"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras_agrupadas.py", target="_blank", "Python"),
+                                                             br(),
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                              )
                                            )
                                   ), 
-                                  tabPanel("Mapa de calor",
+                                  tabPanel("Mapa de calor", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("mapPlot")),
                                              column(width = 6,
@@ -528,7 +545,7 @@ ui <- dashboardPage(skin = 'green',
                                 ),
                                 tabBox(
                                        id = "tabset1", width = "550px", 
-                                       tabPanel("Boxplot", 
+                                       tabPanel("Boxplot", style="text-align: justify",
                                                 fluidRow(
                                                   column(width = 6,  plotOutput("boxPlot")),
                                                   column(width = 6,
@@ -546,11 +563,13 @@ ui <- dashboardPage(skin = 'green',
                                                          tags$div(class = "text-home", 
                                                                   tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/boxplot.R", target="_blank", "R"),
                                                                   br(),
-                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot.py", target="_blank", "Python"))
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot.py", target="_blank", "Python"),
+                                                                  br(),
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                                   )
                                                 )
                                        ),
-                                       tabPanel("Densidade", 
+                                       tabPanel("Densidade", style="text-align: justify",
                                                 fluidRow(
                                                   column(width = 6,  plotOutput("densityPlot3")),
                                                   column(width = 6,
@@ -573,7 +592,7 @@ ui <- dashboardPage(skin = 'green',
                                                   )
                                                 )
                                        ),
-                                       tabPanel("Histograma",
+                                       tabPanel("Histograma", style="text-align: justify",
                                                 fluidRow(
                                                   column(width = 6,  plotOutput("histogramPlot3")),
                                                   column(width = 6,
@@ -593,10 +612,12 @@ ui <- dashboardPage(skin = 'green',
                                                          tags$div(class = "text-home", 
                                                                   tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/histograma3.R", target="_blank", "R"),
                                                                   br(),
-                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma3.py", target="_blank", "Python"))
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma3.py", target="_blank", "Python"),
+                                                                  br(),
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                                   )
                                                 )),
-                                       tabPanel("Pirulito",
+                                       tabPanel("Pirulito", style="text-align: justify",
                                                 fluidRow(
                                                   column(width = 6,  plotOutput("loliPlot2")),
                                                   column(width = 6,
@@ -632,7 +653,7 @@ ui <- dashboardPage(skin = 'green',
                                 ),
                                 tabBox(
                                   id = "tabset1", width = "550px",
-                                tabPanel("Barras agrupadas", 
+                                tabPanel("Barras agrupadas", style="text-align: justify",
                                          fluidRow(
                                            column(width = 6,  plotOutput("groupPlot2")),
                                            column(width = 6,
@@ -651,11 +672,13 @@ ui <- dashboardPage(skin = 'green',
                                                   tags$div(class = "text-home", 
                                                            tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/barras_agrupadas2.R", target="_blank", "R"),
                                                            br(),
-                                                           tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras_agrupadas2.py", target="_blank", "Python"))
+                                                           tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras_agrupadas2.py", target="_blank", "Python"),
+                                                           br(),
+                                                           tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                            )
                                          )
                                 ),
-                                  tabPanel("Boxplot", 
+                                  tabPanel("Boxplot", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("boxPlot2")),
                                              column(width = 6,
@@ -673,7 +696,9 @@ ui <- dashboardPage(skin = 'green',
                                                     tags$div(class = "text-home", 
                                                              tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/boxplot2.R", target="_blank", "R"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot2.py", target="_blank", "Python"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot2.py", target="_blank", "Python"),
+                                                             br(),
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                              )
                                            )
                                   )
@@ -693,7 +718,7 @@ ui <- dashboardPage(skin = 'green',
                                 ),
                                 tabBox(
                                   id = "tabset1", width = "550px",
-                                  tabPanel("Boxplot", 
+                                  tabPanel("Boxplot", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("boxPlot3")),
                                              column(width = 6,
@@ -711,11 +736,13 @@ ui <- dashboardPage(skin = 'green',
                                                     tags$div(class = "text-home", 
                                                              tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/boxplot3.R", target="_blank", "R"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot3.py", target="_blank", "Python"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot3.py", target="_blank", "Python"),
+                                                             br(),
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                              )
                                            )
                                   ),
-                                  tabPanel("Dispersão",
+                                  tabPanel("Dispersão", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("scatterPlot2")),
                                              column(width = 6,
@@ -734,10 +761,12 @@ ui <- dashboardPage(skin = 'green',
                                                     tags$div(class = "text-home", 
                                                              tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/dispersao2.R", target="_blank", "R"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/dispersao2.py", target="_blank", "Python"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/dispersao2.py", target="_blank", "Python"),
+                                                             br(),
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                              )
                                            )), 
-                                  tabPanel("Linha",
+                                  tabPanel("Linha", style="text-align: justify",
                                            fluidRow(
                                              column(width = 6,  plotOutput("linePlot2")),
                                              column(width = 6,
@@ -755,7 +784,9 @@ ui <- dashboardPage(skin = 'green',
                                                     tags$div(class = "text-home", 
                                                              tags$a(href = "https://github.com/rachderossi/DataViz/blob/main/linha2.R", target="_blank", "R"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/linha2.py", target="_blank", "Python"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/linha2.py", target="_blank", "Python"),
+                                                             br(),
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
                                              )
                                            ))
                           )
