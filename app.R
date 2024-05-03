@@ -211,7 +211,7 @@ ui <- dashboardPage(skin = 'green',
                                                                 br(),
                                                                 tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma.py", target="_blank", "Python"),
                                                                 br(),
-                                                                tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                                tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma.md", target="_blank", "Outras plataformas"))
                                                 )
                                               )))
                           
@@ -276,7 +276,7 @@ ui <- dashboardPage(skin = 'green',
                                                              br(),
                                                              tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/dispersao.py", target="_blank", "Python"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/dispersao.md", target="_blank", "Outras plataformas"))
                                              )
                                            )),
                                   tabPanel("Histograma", style="text-align: justify",
@@ -301,7 +301,7 @@ ui <- dashboardPage(skin = 'green',
                                                              br(),
                                                              tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma2.py", target="_blank", "Python"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma.md", target="_blank", "Outras plataformas"))
                                              )
                                            ))
                                   
@@ -328,7 +328,7 @@ ui <- dashboardPage(skin = 'green',
                                                                   br(),
                                                                   tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/area.py", target="_blank", "Python"),
                                                                   br(),
-                                                                  tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/area.md", target="_blank", "Outras plataformas"))
                                                   )
                                                 )
                                        ), 
@@ -375,7 +375,7 @@ ui <- dashboardPage(skin = 'green',
                                                                   br(),
                                                                   tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/linha.py", target="_blank", "Python"),
                                                                   br(),
-                                                                  tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/linha.md", target="_blank", "Outras plataformas"))
                                                   )
                                                 ))
                                        
@@ -419,7 +419,7 @@ ui <- dashboardPage(skin = 'green',
                                                              br(),
                                                              tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras.py", target="_blank", "Python"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras.md", target="_blank", "Outras plataformas"))
                                              )
                                            )
                                   ), 
@@ -502,7 +502,7 @@ ui <- dashboardPage(skin = 'green',
                                                              br(),
                                                              tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras_agrupadas.py", target="_blank", "Python"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras_agrupadas.md", target="_blank", "Outras plataformas"))
                                              )
                                            )
                                   ), 
@@ -565,7 +565,7 @@ ui <- dashboardPage(skin = 'green',
                                                                   br(),
                                                                   tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot.py", target="_blank", "Python"),
                                                                   br(),
-                                                                  tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot.md", target="_blank", "Outras plataformas"))
                                                   )
                                                 )
                                        ),
@@ -614,7 +614,7 @@ ui <- dashboardPage(skin = 'green',
                                                                   br(),
                                                                   tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma3.py", target="_blank", "Python"),
                                                                   br(),
-                                                                  tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                                  tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/histograma.md", target="_blank", "Outras plataformas"))
                                                   )
                                                 )),
                                        tabPanel("Pirulito", style="text-align: justify",
@@ -674,7 +674,7 @@ ui <- dashboardPage(skin = 'green',
                                                            br(),
                                                            tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras_agrupadas2.py", target="_blank", "Python"),
                                                            br(),
-                                                           tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                           tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/barras_agrupadas.md", target="_blank", "Outras plataformas"))
                                            )
                                          )
                                 ),
@@ -698,7 +698,7 @@ ui <- dashboardPage(skin = 'green',
                                                              br(),
                                                              tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot2.py", target="_blank", "Python"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot.md", target="_blank", "Outras plataformas"))
                                              )
                                            )
                                   )
@@ -738,7 +738,7 @@ ui <- dashboardPage(skin = 'green',
                                                              br(),
                                                              tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot3.py", target="_blank", "Python"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/boxplot.md", target="_blank", "Outras plataformas"))
                                              )
                                            )
                                   ),
@@ -763,7 +763,7 @@ ui <- dashboardPage(skin = 'green',
                                                              br(),
                                                              tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/dispersao2.py", target="_blank", "Python"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/dispersao.md", target="_blank", "Outras plataformas"))
                                              )
                                            )), 
                                   tabPanel("Linha", style="text-align: justify",
@@ -786,7 +786,7 @@ ui <- dashboardPage(skin = 'green',
                                                              br(),
                                                              tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/linha2.py", target="_blank", "Python"),
                                                              br(),
-                                                             tags$a(href= "https://github.com/rachderossi/DataViz", target="_blank", "Outras plataformas"))
+                                                             tags$a(href= "https://github.com/rachderossi/DataViz/blob/main/linha.md", target="_blank", "Outras plataformas"))
                                              )
                                            ))
                           )
