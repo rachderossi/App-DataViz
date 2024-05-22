@@ -34,7 +34,20 @@ ui <- dashboardPage(skin = 'green',
                                                 menuSubItem("Uma variável num. e muitas categóricas",
                                                             tabName = "subMenu6"),
                                                 menuSubItem("Uma variável cat. e muitas numéricas",
-                                                            tabName = "subMenu7"))
+                                                            tabName = "subMenu7")),
+                                       tags$div(
+                                         style = "position: absolute; 
+                                         bottom: 0; 
+                                         width: 100%; 
+                                         padding: 10px; 
+                                         color: #B2BEC4;
+                                         background: #242D31;
+                                         font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+                                         font-weight: regular;
+                                         font-size: 14px;",
+                                         p('Desenvolvido por: Raquel Rossi Ferreira'),
+                                         p('Todos os direitos reservados.'), 
+                                         p("Contato: raquelderossi@hotmail.com"))
                                      )),
                     
                     dashboardBody(
