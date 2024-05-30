@@ -181,7 +181,7 @@ ui <- dashboardPage(skin = 'green',
                                   id = "tabset1", width = "550px", 
                                   tabPanel("Densidade", style="text-align: justify",
                                            fluidRow(
-                                             column(width = 6,  plotOutput("densityPlot")),
+                                              column(width = 6,  plotOutput("densityPlot")),
                                              column(width = 6,
                                                     tags$div(
                                                       tags$div(class = "title-tab", "Sobre"), 
@@ -893,10 +893,14 @@ output$densityPlot <- renderPlot({
     filter( price<300 ) %>%
     ggplot( aes(x=price)) +
     geom_density(fill="#69b3a2", color="#e9ecef", alpha=0.8) +
-    ggtitle("Distribuição de preços de aluguel") +
-    xlab("preço") +
+    ggtitle("Preço por diária de apartamentos Airbnb na Riviera Francesa") +
+    xlab("preço (euro)") +
     ylab("densidade") +
-    theme_ipsum()
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14))
 })
 
 output$densityPlot2 <- renderPlot({
@@ -905,14 +909,20 @@ output$densityPlot2 <- renderPlot({
   data %>%
     filter(Price < 300) %>%
     ggplot() +
-    geom_density(aes(x = Price, fill = "preço"), alpha = 0.8) +  
-    geom_density(aes(x = CompPrice, fill = "renda"), alpha = 0.8) +  
+    geom_density(aes(x = Price, fill = "empresa"), alpha = 0.8) +  
+    geom_density(aes(x = CompPrice, fill = "concorrente"), alpha = 0.8) +  
     scale_fill_manual(values = c("#6E9AF8", "#009E73"), name = NULL) +
-    ggtitle("Distribuição de preço e renda") +
-    xlab("valor") +
+    ggtitle("Distribuição conjunta dos preços dos concorrentes e da 
+    empresa para assentos de carro em diferentes locais") +
+    xlab("preço (dólar)") +
     ylab("densidade") +
     guides(fill = guide_legend(title.position = "left", title.hjust = 1, title = NULL)) +
-    theme_ipsum() 
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14),
+          legend.text = element_text(size = 14))
 })
 
 output$densityPlot3 <- renderPlot({
@@ -920,10 +930,16 @@ output$densityPlot3 <- renderPlot({
     ggplot(aes(x = Sepal.Length, fill = Species)) +
     geom_density(alpha = 0.5) + 
     ggtitle("Distribuição do comprimento da sépala por espécie de flor") +
-    xlab("comprimento da sépala") +
+    xlab("comprimento da sépala (cm)") +
     ylab("densidade") +
     labs(fill = "espécies") +
-    theme_ipsum()
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14),
+          legend.title = element_text(size = 14),
+          legend.text = element_text(size = 14))
 })
 
 output$histogramPlot <- renderPlot({
@@ -933,10 +949,14 @@ output$histogramPlot <- renderPlot({
     filter(price<300 ) %>%
     ggplot(aes(x=price)) +
     geom_histogram(fill="#69b3a2", color="#e9ecef", alpha=0.8) +
-    ggtitle("Distribuição de preços de aluguel") +
-    xlab("preço") +
+    ggtitle("Preço por diária de apartamentos Airbnb na Riviera Francesa") +
+    xlab("preço (euro)") +
     ylab("frequência") +
-    theme_ipsum()
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14))
 })
 
 output$histogramPlot2 <- renderPlot({
@@ -945,25 +965,37 @@ output$histogramPlot2 <- renderPlot({
   data %>%
     filter(Price < 300) %>%
     ggplot() +
-    geom_histogram(aes(x = Price, fill = "preço"), alpha = 0.8) +  
-    geom_histogram(aes(x = CompPrice, fill = "renda"),  alpha = 0.8) +  
+    geom_histogram(aes(x = Price, fill = "empresa"), alpha = 0.8) +  
+    geom_histogram(aes(x = CompPrice, fill = "concorrente"),  alpha = 0.8) +  
     scale_fill_manual(values = c("#6E9AF8", "#009E73"), name= NULL) +  
-    ggtitle("Distribuição de preço e renda") +
-    xlab("valor") +
+    ggtitle("Distribuição conjunta dos preços dos concorrentes e da 
+    empresa para assentos de carro em diferentes locais") +
+    xlab("preço (dólar)") +
     ylab("frequência") +
     guides(fill = guide_legend(title.position = "left", title.hjust = 1, title = NULL)) +
-    theme_ipsum() 
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14),
+          legend.text = element_text(size = 14))
 })
 
 output$histogramPlot3 <- renderPlot({
     iris %>%
       ggplot(aes(x = Petal.Length, fill = Species)) +
       geom_histogram(binwidth = 0.2, alpha = 0.5, position = "identity") +
-      ggtitle("Distribuição do comprimento da sépala por espécie de flor") +
-      xlab("comprimento da pétala") +
+      ggtitle("Distribuição do comprimento da pétala por espécie de flor") +
+      xlab("comprimento da pétala (cm)") +
       ylab("frequência") +
       labs(fill = "espécies") +
-      theme_ipsum()
+      theme_ipsum() +
+      theme(axis.text.x = element_text(size = 14),
+            axis.text.y = element_text(size = 14),
+            axis.title.x = element_text(size = 14),
+            axis.title.y = element_text(size = 14),
+            legend.title = element_text(size = 14),
+            legend.text = element_text(size = 14))
 })
 
 output$boxPlot <- renderPlot({
@@ -975,7 +1007,11 @@ output$boxPlot <- renderPlot({
     ylab("milhas por galão") +
     theme(legend.position = "left") + 
     guides(fill = guide_legend(title = NULL)) +
-    theme_ipsum() 
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14))
 })
 
 output$boxPlot2 <- renderPlot({
@@ -984,9 +1020,15 @@ output$boxPlot2 <- renderPlot({
     geom_boxplot() +
     ggtitle("Distribuição do preço dos diamantes por corte e cor") +
     xlab("corte") +
-    ylab("preço") +
+    ylab("preço (dólar)") +
     labs(fill = "cor") +
-    theme_ipsum()
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14),
+          legend.title = element_text(size = 14),
+          legend.text = element_text(size = 14))
 })
 
 output$boxPlot3 <- renderPlot({
@@ -998,7 +1040,12 @@ output$boxPlot3 <- renderPlot({
     ylab("milhas por galão") +
     scale_fill_manual(values = c("#009E73", "#6E9AF8")) +
     guides(fill = guide_legend(title = NULL)) +
-    theme_ipsum() 
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14),
+          legend.text = element_text(size = 14))
 })
 
 output$scatterPlot <- renderPlot({
@@ -1007,12 +1054,16 @@ output$scatterPlot <- renderPlot({
   data %>%
     ggplot(aes(x = CompPrice, y = Price)) + 
     geom_point(size = 3, color = "#009E73") +
-    ggtitle("Relação entre o preço da mercadoria na empresa e no concorrente") +
-    xlab("preço no concorrente") +
-    ylab("preço na empresa") +
+    ggtitle("Relação entre o preço da mercadoria na empresa e concorrente") +
+    xlab("preço no concorrente (dólar)") +
+    ylab("preço na empresa (dólar)") +
     theme(legend.position = "left") + 
     guides(color = guide_legend(title = NULL)) +
-    theme_ipsum() 
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14))
 })
 
 output$scatterPlot2 <- renderPlot({
@@ -1020,12 +1071,18 @@ output$scatterPlot2 <- renderPlot({
     ggplot(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
     geom_point(size = 3) +
     ggtitle("Relação entre comprimento e largura das sépalas por espécie") +
-    xlab("comprimento") +
-    ylab("largura") +
+    xlab("comprimento (cm)") +
+    ylab("largura (cm)") +
     labs(color = "espécies") +
     theme(legend.position = "left") + 
     guides(color = guide_legend(title = NULL)) +
-    theme_ipsum() 
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14),
+          legend.title = element_text(size = 14),
+          legend.text = element_text(size = 14))
 })
 
 output$areaPlot <- renderPlot({
@@ -1039,8 +1096,12 @@ output$areaPlot <- renderPlot({
     geom_line(color="#69b3a2") +
     ggtitle("Evolução do preço do Bitcoin") +
     xlab("ano") +
-    ylab("preço do Bitcoin ($)") +
-    theme_ipsum()
+    ylab("preço (dólar)") +
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14))
 })
 
 output$scattercPlot <- renderPlot({
@@ -1056,8 +1117,12 @@ output$scattercPlot <- renderPlot({
     geom_line(color = "#69b3a2") +
     ggtitle("Evolução do preço do Bitcoin em abril de 2018") +
     xlab("data") +
-    ylab("preço do Bitcoin ($)") +
-    theme_ipsum()
+    ylab("preço (dólar)") +
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14))
 })
 
 output$linePlot <- renderPlot({
@@ -1069,8 +1134,12 @@ output$linePlot <- renderPlot({
     geom_line(color="#69b3a2") +
     ggtitle("Evolução do preço do Bitcoin") +
     xlab("ano") +
-    ylab("preço do Bitcoin ($)") +
-    theme_ipsum()
+    ylab("preço (dólar)") +
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14))
 })
 
 output$linePlot2 <- renderPlot({
@@ -1082,11 +1151,17 @@ output$linePlot2 <- renderPlot({
     ggplot(aes(x = year, y = n, group = name, color = name)) +
     geom_line() +
     scale_color_manual(values = c("#6E9AF8", "#009E73", "#FFA07A"), name = NULL) +
-    ggtitle("Popularidade de nomes Americanos nos últimos 30 Anos") +
+    ggtitle("Popularidade dos nomes Ashley, Patrícia e Helen
+                 nos EUA entre (1880-2020) ") +
     xlab("ano") +
     ylab("número de bebês") +
     guides(color = guide_legend(title.position = "left", title.hjust = 1, title = NULL)) +
-    theme_ipsum() 
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14),
+          legend.text = element_text(size = 14))
 })
 
 output$barPlot <- renderPlot({
@@ -1098,7 +1173,11 @@ output$barPlot <- renderPlot({
     ggtitle("Distribuição das classes de veículo") +
     xlab("classe") +
     ylab("frequência") +
-    theme_ipsum()
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14))
   
 })
 
@@ -1131,7 +1210,11 @@ output$loliPlot <- renderPlot({
     xlab("classe") +
     ylab("frequência") +
     coord_flip() +
-    theme_ipsum()
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14))
 })
 
 output$loliPlot2 <- renderPlot({
@@ -1150,11 +1233,16 @@ output$loliPlot2 <- renderPlot({
       panel.grid.major.y = element_blank(),
       legend.position="none",
       plot.title = element_text(hjust = 0.5, size = 15)) +
-    ggtitle("Quantidade de armas exportadas pelos 20 maiores exportadores em 2017") +
+    ggtitle("Quantidade de armas exportadas pelos 
+    20 maiores exportadores em 2017") +
     xlab("países") +
     ylab("quantidade de armas") +
     coord_flip() +
-    theme_ipsum() 
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14))
 })
 
 output$groupPlot <- renderPlot({
@@ -1165,7 +1253,13 @@ output$groupPlot <- renderPlot({
     xlab("corte") +
     ylab("frequência") +
     labs(fill = "cor") +
-    theme_ipsum() 
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14),
+          legend.title = element_text(size = 14),
+          legend.text = element_text(size = 14))
 })
 
 output$groupPlot2 <- renderPlot({
@@ -1179,11 +1273,17 @@ output$groupPlot2 <- renderPlot({
     ggplot( aes(x=year, y=n, fill=name)) +
     geom_bar(stat="identity", position="dodge") +
     scale_fill_manual(values = c("Anna" = "#6E9AF8", "Mary" = "#69b3a2")) + 
-    ggtitle("Número de bebês chamados Anna e Mary ao longo dos anos") +
+    ggtitle("Número de bebês chamados Anna e Mary 
+            nos EUA ao longo dos anos") +
     ylab("número de bebês") +
     xlab("anos") +
     guides(fill = guide_legend(title = NULL)) +
-    theme_ipsum() 
+    theme_ipsum() +
+    theme(axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 14),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14),
+          legend.text = element_text(size = 14))
 })
 
 output$mapPlot <- renderPlot({
